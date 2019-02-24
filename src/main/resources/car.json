@@ -1,0 +1,8 @@
+{
+  "car": {
+    "brand": "Fiat",
+    "model": "500",
+    "engineVolume": "1000",
+    "color": "white"
+  }
+}

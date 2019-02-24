@@ -1,0 +1,22 @@
+{
+  "cars": [
+    {
+      "brand": "Fiat",
+      "model": "500",
+      "engineVolume": 1000,
+      "color": "white"
+    },
+    {
+      "brand": "Volksvagen",
+      "model": "Golf",
+      "engineVolume": 1900,
+      "color": "black"
+    },
+    {
+      "brand": "Audi",
+      "model": "A4",
+      "engineVolume": 2000,
+      "color": "white"
+    }
+  ]
+}
