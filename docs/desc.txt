@@ -1,0 +1,10 @@
+Program demonstruje sposoby na przeprowadzanie operacji na plikach.
+
+Działanie klas zapisujących/czytających pliki demonstrowane jest na przykładzie obiektów klasy
+Car, przechowujących dane o marce/modelu/pojemności silnika/kolorze samochodów.
+
+Klasy writer przyjmują jako parametry wejściowe następujące wartości:
+- listę obiektów, które mają być użyte do wygenerowania zawartości pliku,
+- ścieżkę pod jaką ma być zapisany plik.
+
+Docelowo program będzie operować na plikach CSV, Json, XSLX i XML.
