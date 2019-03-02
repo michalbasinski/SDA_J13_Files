@@ -11,6 +11,18 @@ import java.util.List;
 
 public class JsonWriter {
 
+    /**
+     * Metoda służąca do zapisu JSONa zawierającego dane o autach do pliku. W razie błędów metoda
+     * wyrzuci wyjątek JsonWriterException.
+     * Schemat działania:
+     * 1. utworzenie nowego, pustego obiektu typu JsonObject
+     * 2. utworzenie nowej tablicy jsonArray
+     * 3. przejście po liście samochodów: zbudowanie nowych obiektów i dodanie ich do tablicy JsonArray
+     * 4. dodanie tablicy jsonArray do obiektu jsonObject utworzonego w pierwszym kroku
+     * 5. zapisanie obiektu jsonObject do pliku z wykorzstaniem obiektu klasy BufferedWriter
+     * @param carList lista zawierająca obiekty typu Car
+     * @param filePath ścieżka do pliku wynikowego
+     */
     public void write(List<Car> carList, String filePath) {
 
         try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(filePath))) {

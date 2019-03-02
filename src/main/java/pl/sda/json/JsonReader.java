@@ -24,7 +24,7 @@ public class JsonReader {
      * 6. uzupełnienie listy cars o obiekty typu Car
      * 7. zwrócenie wyniku
      * @param filePath ścieżka do pliku
-     * @return lista obiektów car zbudowanych na bazie pliku json
+     * @return lista obiektów klasy Car zbudowanych na bazie pliku json
      */
     public List<Car> read(String filePath) {
         List<Car> cars = new ArrayList<>();
