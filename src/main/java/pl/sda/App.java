@@ -2,6 +2,8 @@ package pl.sda;
 
 import pl.sda.csv.CsvReader;
 import pl.sda.csv.CsvWriter;
+import pl.sda.json.JsonReader;
+import pl.sda.json.JsonWriter;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -35,5 +37,14 @@ public class App
         for (Car car : cars) {
             System.out.println(car.getBrand() + car.getModel() + car.getEngineVolume() + car.getColor());
         }
+
+        JsonReader jsonReader = new JsonReader();
+        List<Car> carsFromJson = jsonReader.read("/home/michal/SDA/Java13/Projekty/SDA_J13_Files/src/main/resources/cars.json");
+        for (Car car : carsFromJson) {
+            System.out.println(car.getBrand() + car.getModel() + car.getEngineVolume() + car.getColor());
+        }
+
+        JsonWriter jsonWriter = new JsonWriter();
+        jsonWriter.write(cars, "/home/michal/test.json");
     }
 }

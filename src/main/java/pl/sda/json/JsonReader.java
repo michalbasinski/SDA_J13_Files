@@ -37,7 +37,24 @@ public class JsonReader {
 
             JSONArray carsArray = json.getJSONArray("cars");
 
+            for (Object carObject : carsArray) {
+                // istotne jest dodanie toString - inaczej nie zadziała new JSONObject()
+                JSONObject carJson = new JSONObject(carObject.toString());
 
+                // pobieranie wartości z jsona reprezentujacego pojedyńczy samochód
+                String brand = carJson.getString("brand");
+                String model = carJson.getString("model");
+                String engineVolume = String.valueOf(carJson.getInt("engineVolume"));
+                String color = carJson.getString("color");
+
+                Car car = new Car();
+                car.setBrand(brand);
+                car.setModel(model);
+                car.setEngineVolume(engineVolume);
+                car.setColor(color);
+
+                cars.add(car);
+            }
 
 
 
