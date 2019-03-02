@@ -3,6 +3,7 @@ package pl.sda.json;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import pl.sda.Car;
+import pl.sda.CarBuilder;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -47,12 +48,14 @@ public class JsonReader {
                 String engineVolume = String.valueOf(carJson.getInt("engineVolume"));
                 String color = carJson.getString("color");
 
-                Car car = new Car();
-                car.setBrand(brand);
-                car.setModel(model);
-                car.setEngineVolume(engineVolume);
-                car.setColor(color);
-
+//                Car car = new Car();
+//                car.setBrand(brand);
+//                car.setModel(model);
+//                car.setEngineVolume(engineVolume);
+//                car.setColor(color);
+                CarBuilder carBuilder = new CarBuilder();
+                Car car = carBuilder.withBrand(brand).withModel(model)
+                        .withEngineVolume(engineVolume).withColor(color).build();
                 cars.add(car);
             }
 
