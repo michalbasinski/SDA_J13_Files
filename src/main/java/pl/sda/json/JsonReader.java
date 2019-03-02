@@ -13,13 +13,18 @@ import java.util.List;
 public class JsonReader {
 
     /**
-     * Metoda wczytująca plik JSON do reprezentacji javowej (lista obiektów Car)
+     * Metoda wczytująca plik JSON do reprezentacji javowej (lista obiektów Car). W razie błędu
+     * zostanie wyrzucony wyjątek JsonReaderException
      * Schemat działania:
      * 1. wczytanie zawartości pliku do tablicy bajtów z wykorzystaniem metody z klasy Files
      * 2. skonwertowanie tablicy bajtów na stringa - wymagane jest podanie kodowania (standardowe i najbezpieczniejsze jest UTF-8)
-     * 3.
+     * 3. utworzenie obiektu typu JsonObject na bazie wczytanego stringa
+     * 4. wyciągnięcie z "dużego obiektu" tablicy znajdującej się pod kluczem "cars"
+     * 5. przetworzenie tablicy (carsArray) w pętli i zbudowanie obiektów
+     * 6. uzupełnienie listy cars o obiekty typu Car
+     * 7. zwrócenie wyniku
      * @param filePath ścieżka do pliku
-     * @return
+     * @return lista obiektów car zbudowanych na bazie pliku json
      */
     public List<Car> read(String filePath) {
         List<Car> cars = new ArrayList<>();
@@ -31,6 +36,8 @@ public class JsonReader {
             JSONObject json = new JSONObject(fileContents);
 
             JSONArray carsArray = json.getJSONArray("cars");
+
+
 
 
 
