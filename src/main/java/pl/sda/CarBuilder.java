@@ -1,5 +1,14 @@
 package pl.sda;
 
+/**
+ * Implementacja wzorca projektowego Builder, pozwalającego na bardziej uporządkowane
+ * tworzenie nowych obiektów. Charakterystyczną cechą tego wzorca jest zastosowanie metod
+ * withABC() zwracających obiekt buildera (this). Wykorzystanie takiego mechanizmu (nazywanego
+ * także "fluent api") pozwala na używanie ciągów wywołań pokroju
+ * builder.withName("Jan").withLastName("Kowalski").
+ * Poniższa implementacja została wykorzystana w klasach CsvReader i JsonReader w celu tworzenia
+ * nowych obiektów typu Car.
+ */
 public class CarBuilder {
 
     private Car carToBuild;
