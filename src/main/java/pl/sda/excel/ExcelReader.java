@@ -1,9 +1,6 @@
 package pl.sda.excel;
 
-import org.apache.poi.ss.usermodel.Cell;
-import org.apache.poi.ss.usermodel.Row;
-import org.apache.poi.ss.usermodel.Sheet;
-import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import pl.sda.Car;
 
@@ -48,9 +45,18 @@ public class ExcelReader {
                 while (cellIterator.hasNext()) {
                     Cell cell = cellIterator.next();
                     String currentColumn = headers.get(counter);
-                    putCurrentValueToNewCar(car, cell.getStringCellValue(), currentColumn);
-                    result.add(car);
+
+                    CellType cellType = cell.getCellType();
+
+                    // operator trójargumentowy
+                    Object cellValue = CellType.NUMERIC.equals(cellType) ?
+                            cell.getNumericCellValue() : cell.getStringCellValue();
+
+                    putCurrentValueToNewCar(car, cellValue, currentColumn);
+                    counter++;
+
                 }
+                result.add(car);
 
             }
         } catch (FileNotFoundException e) {
@@ -62,18 +68,18 @@ public class ExcelReader {
         return result;
     }
 
-    private void putCurrentValueToNewCar(Car car, String stringCellValue, String currentColumn) {
+    private void putCurrentValueToNewCar(Car car, Object stringCellValue, String currentColumn) {
         if ("brand".equals(currentColumn)) {
-            car.setBrand(stringCellValue);
+            car.setBrand(stringCellValue.toString());
         }
         if ("model".equals(currentColumn)) {
-            car.setModel(stringCellValue);
+            car.setModel(stringCellValue.toString());
         }
         if ("engineVolume".equals(currentColumn)) {
-            car.setEngineVolume(stringCellValue);
+            car.setEngineVolume(stringCellValue.toString());
         }
         if ("color".equals(currentColumn)) {
-            car.setColor(stringCellValue);
+            car.setColor(stringCellValue.toString());
         }
     }
 
