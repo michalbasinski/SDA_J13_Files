@@ -2,6 +2,7 @@ package pl.sda;
 
 import pl.sda.csv.CsvReader;
 import pl.sda.csv.CsvWriter;
+import pl.sda.excel.ExcelReader;
 import pl.sda.json.JsonReader;
 import pl.sda.json.JsonWriter;
 
@@ -12,6 +13,10 @@ import java.util.List;
 public class App
 {
     public static void main( String[] args ) throws IOException {
+
+        ExcelReader reader = new ExcelReader();
+        List<Car> read = reader.read("/home/michal/cars.xlsx");
+
 //        List<Car> cars = new ArrayList<>();
 //
 //        Car car1 = new Car();
