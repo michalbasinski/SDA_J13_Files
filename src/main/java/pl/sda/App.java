@@ -3,6 +3,7 @@ package pl.sda;
 import pl.sda.csv.CsvReader;
 import pl.sda.csv.CsvWriter;
 import pl.sda.excel.ExcelReader;
+import pl.sda.excel.ExcelWriter;
 import pl.sda.json.JsonReader;
 import pl.sda.json.JsonWriter;
 
@@ -16,6 +17,9 @@ public class App
 
         ExcelReader reader = new ExcelReader();
         List<Car> read = reader.read("/home/michal/cars.xlsx");
+
+        ExcelWriter writer = new ExcelWriter();
+        writer.write(read, "/home/michal/myExcel.xlsx");
 
 //        List<Car> cars = new ArrayList<>();
 //
